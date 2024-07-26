@@ -4,6 +4,10 @@ import { knex } from "../database"
 import { randomUUID } from 'node:crypto'
 import { checkSessionIdExists } from "../middlewares/check-session-id-exists"
 
+// Unitários: unidade da sua aplicação
+// Integração: comunicação entre duas ou mais unidades
+// e2e - ponta a ponta: simulam um usuário operando na aplicação
+
 export async function transactionRoutes(app: FastifyInstance) {
 
     app.get('/', {preHandler: [checkSessionIdExists]}, async (request, reply) => {
